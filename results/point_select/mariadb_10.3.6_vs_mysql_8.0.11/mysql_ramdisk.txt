@@ -1,0 +1,625 @@
+
+C:\sysbench>call point_select cleanup 1 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=1 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  cleanup 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Dropping table 'sbtest'...
+Done.
+
+C:\sysbench>call point_select prepare 1 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=1 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  prepare 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Creating table 'sbtest'...
+Creating 1000000 records in table 'sbtest'...
+
+C:\sysbench>FOR %A IN (1 2 4 8 16 32 64 128 256 512 1024 2048 4096 9182) DO call point_select run %A 
+
+C:\sysbench>call point_select run 1 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=1 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            1515452
+        write:                           0
+        other:                           0
+        total:                           1515452
+    transactions:                        1515452 (12628.76 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 1515452 (12628.76 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0001s
+    total number of events:              1515452
+    total time taken by event execution: 118.4151
+    response time:
+         min:                                  0.06ms
+         avg:                                  0.08ms
+         max:                                  0.33ms
+         approx.  99 percentile:               0.11ms
+
+Threads fairness:
+    events (avg/stddev):           1515452.0000/0.00
+    execution time (avg/stddev):   118.4151/0.00
+
+
+C:\sysbench>call point_select run 2 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=2 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 2
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 1 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            2931825
+        write:                           0
+        other:                           0
+        total:                           2931825
+    transactions:                        2931825 (24431.85 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 2931825 (24431.85 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0001s
+    total number of events:              2931825
+    total time taken by event execution: 236.1340
+    response time:
+         min:                                  0.06ms
+         avg:                                  0.08ms
+         max:                                  0.42ms
+         approx.  99 percentile:               0.11ms
+
+Threads fairness:
+    events (avg/stddev):           1465912.5000/4823.50
+    execution time (avg/stddev):   118.0670/0.02
+
+
+C:\sysbench>call point_select run 4 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=4 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 4
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 3 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            5260687
+        write:                           0
+        other:                           0
+        total:                           5260687
+    transactions:                        5260687 (43839.02 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 5260687 (43839.02 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0001s
+    total number of events:              5260687
+    total time taken by event execution: 469.0302
+    response time:
+         min:                                  0.06ms
+         avg:                                  0.09ms
+         max:                                  1.82ms
+         approx.  99 percentile:               0.13ms
+
+Threads fairness:
+    events (avg/stddev):           1315171.7500/8756.96
+    execution time (avg/stddev):   117.2576/0.01
+
+
+C:\sysbench>call point_select run 8 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=8 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 8
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 7 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            8083318
+        write:                           0
+        other:                           0
+        total:                           8083318
+    transactions:                        8083318 (67360.85 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 8083318 (67360.85 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0002s
+    total number of events:              8083318
+    total time taken by event execution: 939.8719
+    response time:
+         min:                                  0.06ms
+         avg:                                  0.12ms
+         max:                                  0.90ms
+         approx.  99 percentile:               0.17ms
+
+Threads fairness:
+    events (avg/stddev):           1010414.7500/4002.49
+    execution time (avg/stddev):   117.4840/0.01
+
+
+C:\sysbench>call point_select run 16 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=16 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 16
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 15 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            8118009
+        write:                           0
+        other:                           0
+        total:                           8118009
+    transactions:                        8118009 (67649.93 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 8118009 (67649.93 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0003s
+    total number of events:              8118009
+    total time taken by event execution: 1899.2688
+    response time:
+         min:                                  0.06ms
+         avg:                                  0.23ms
+         max:                                 73.56ms
+         approx.  99 percentile:               0.58ms
+
+Threads fairness:
+    events (avg/stddev):           507375.5625/132551.37
+    execution time (avg/stddev):   118.7043/0.27
+
+
+C:\sysbench>call point_select run 32 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=32 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 32
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 31 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            8210855
+        write:                           0
+        other:                           0
+        total:                           8210855
+    transactions:                        8210855 (68423.44 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 8210855 (68423.44 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0006s
+    total number of events:              8210855
+    total time taken by event execution: 3817.9041
+    response time:
+         min:                                  0.07ms
+         avg:                                  0.46ms
+         max:                                803.27ms
+         approx.  99 percentile:               0.92ms
+
+Threads fairness:
+    events (avg/stddev):           256589.2188/69283.50
+    execution time (avg/stddev):   119.3095/0.17
+
+
+C:\sysbench>call point_select run 64 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=64 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 64
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 63 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            7910839
+        write:                           0
+        other:                           0
+        total:                           7910839
+    transactions:                        7910839 (65923.07 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 7910839 (65923.07 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0011s
+    total number of events:              7910839
+    total time taken by event execution: 7649.8133
+    response time:
+         min:                                  0.06ms
+         avg:                                  0.97ms
+         max:                                375.69ms
+         approx.  99 percentile:              19.63ms
+
+Threads fairness:
+    events (avg/stddev):           123606.8594/73974.55
+    execution time (avg/stddev):   119.5283/0.29
+
+
+C:\sysbench>call point_select run 128 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=128 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 128
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 127 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            7831379
+        write:                           0
+        other:                           0
+        total:                           7831379
+    transactions:                        7831379 (65260.30 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 7831379 (65260.30 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0022s
+    total number of events:              7831379
+    total time taken by event execution: 15321.3578
+    response time:
+         min:                                  0.07ms
+         avg:                                  1.96ms
+         max:                                511.43ms
+         approx.  99 percentile:              48.78ms
+
+Threads fairness:
+    events (avg/stddev):           61182.6484/46728.95
+    execution time (avg/stddev):   119.6981/0.17
+
+
+C:\sysbench>call point_select run 256 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=256 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 256
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 255 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            7576977
+        write:                           0
+        other:                           0
+        total:                           7576977
+    transactions:                        7576977 (63138.87 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 7576977 (63138.87 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0049s
+    total number of events:              7576977
+    total time taken by event execution: 30624.9095
+    response time:
+         min:                                  0.07ms
+         avg:                                  4.04ms
+         max:                               1013.81ms
+         approx.  99 percentile:             101.09ms
+
+Threads fairness:
+    events (avg/stddev):           29597.5664/4349.20
+    execution time (avg/stddev):   119.6286/0.22
+
+
+C:\sysbench>call point_select run 512 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=512 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 512
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 511 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            6833109
+        write:                           0
+        other:                           0
+        total:                           6833109
+    transactions:                        6833109 (56937.78 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 6833109 (56937.78 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0101s
+    total number of events:              6833109
+    total time taken by event execution: 60964.0474
+    response time:
+         min:                                  0.07ms
+         avg:                                  8.92ms
+         max:                                967.59ms
+         approx.  99 percentile:             160.00ms
+
+Threads fairness:
+    events (avg/stddev):           13345.9160/1946.91
+    execution time (avg/stddev):   119.0704/0.61
+
+
+C:\sysbench>call point_select run 1024 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=1024 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1024
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 1023 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            5421239
+        write:                           0
+        other:                           0
+        total:                           5421239
+    transactions:                        5421239 (45168.88 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 5421239 (45168.88 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0215s
+    total number of events:              5421239
+    total time taken by event execution: 122067.3408
+    response time:
+         min:                                  0.07ms
+         avg:                                 22.52ms
+         max:                               1609.27ms
+         approx.  99 percentile:             269.84ms
+
+Threads fairness:
+    events (avg/stddev):           5294.1787/667.99
+    execution time (avg/stddev):   119.2064/0.75
+
+
+C:\sysbench>call point_select run 2048 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=2048 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 2048
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 2047 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            4683897
+        write:                           0
+        other:                           0
+        total:                           4683897
+    transactions:                        4683897 (39014.61 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 4683897 (39014.61 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.0549s
+    total number of events:              4683897
+    total time taken by event execution: 243500.3586
+    response time:
+         min:                                  0.07ms
+         avg:                                 51.99ms
+         max:                               4036.73ms
+         approx.  99 percentile:             433.67ms
+
+Threads fairness:
+    events (avg/stddev):           2287.0591/462.26
+    execution time (avg/stddev):   118.8967/1.07
+
+
+C:\sysbench>call point_select run 4096 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=4096 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 4096
+Random number generator seed is 0 and will be ignored
+
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Uniform distribution
+Skipping BEGIN/COMMIT
+Using auto_inc on the id column
+Threads started!
+Time limit exceeded, exiting...
+(last message repeated 4095 times)
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            1170196
+        write:                           0
+        other:                           0
+        total:                           1170196
+    transactions:                        1170196 (9735.91 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 1170196 (9735.91 per sec.)
+    other operations:                    0      (0.00 per sec.)
+
+General statistics:
+    total time:                          120.1938s
+    total number of events:              1170196
+    total time taken by event execution: 488111.4077
+    response time:
+         min:                                  0.07ms
+         avg:                                417.12ms
+         max:                               8974.64ms
+         approx.  99 percentile:            2464.25ms
+
+Threads fairness:
+    events (avg/stddev):           285.6924/49.69
+    execution time (avg/stddev):   119.1678/0.65
+
+
+C:\sysbench>call point_select run 9182 
+
+C:\sysbench>sysbench --test=oltp --oltp-table-size=1000000 --mysql-host=localhost --mysql-db=sbtest --mysql-user=root --mysql-password= --db-driver=mysql --mysql-table-engine=innodb --max-time=120 --oltp-test-mode=complex --oltp-read-only=off --max-requests=0 --num-threads=9182 --oltp-point-selects=1 --oltp-simple-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --oltp-distinct-ranges=0 --oltp-index-updates=0 --oltp-delete-inserts=0 --oltp-non-index-updates=0  --oltp-skip-trx=on --oltp-dist-type=uniform  --percentile=99 --mysql-socket=MySQL  run 
+sysbench 0.4:  multi-threaded system evaluation benchmark
+
+FATAL: unable to connect to MySQL server, aborting...
+FATAL: error 1040: Too many connections
+FATAL: failed to connect to database server!
+FATAL: thread#4097: failed to connect to database server, aborting...
